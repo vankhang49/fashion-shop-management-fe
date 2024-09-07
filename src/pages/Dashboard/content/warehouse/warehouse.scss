@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+.header-search {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  align-items: center;
+
+  input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: 200px; /* Adjust width as needed */
+  }
+
+  button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
+
+#warehouse-table {
+  overflow-x: auto;
+}
+
+.data-table {
+  max-height: 900px;
+  overflow-y: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px; /* Bo tròn các góc của bảng */
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+
+    tbody {
+      tr:nth-child(even) {
+        background-color: #f2f2f2; /* Màu nền cho hàng chẵn */
+      }
+
+      tr:nth-child(odd) {
+        background-color:  rgba(242, 242, 242, 0.34); /* Màu nền cho hàng lẻ */
+      }
+
+      tr:hover {
+        background-color: #cce5ff; /* Màu nền khi hover */
+      }
+    }
+  }
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+
+  button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+}
+
+.nav-link-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+
+  .nav-link {
+    padding: 10px 20px;
+    background-color: rgba(50, 101, 122, 0.56);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(14, 141, 43, 0.58);
+    }
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header-search {
+    justify-content: center;
+    margin-bottom: 10px;
+
+    input[type="text"] {
+      width: 100%; /* Full width on smaller screens */
+      margin-right: 0;
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+    margin-top: 10px;
+
+    button {
+      margin-left: 5px;
+    }
+  }
+
+  .nav-link-container {
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .nav-link {
+      padding: 8px 15px;
+    }
+  }
+}

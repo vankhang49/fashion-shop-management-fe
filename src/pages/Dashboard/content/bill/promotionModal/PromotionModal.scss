@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 60px;
+}
+
+.modal.open {
+  display: block;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; /* Giới hạn chiều rộng tối đa của modal */
+  box-sizing: border-box; /* Đảm bảo kích thước phù hợp với padding và border */
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-input {
+  margin-bottom: 10px;
+}
+
+.modal-input label {
+  display: block;
+  font-weight: bold;
+}
+
+.modal-input input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.modal-input input[type="text"]:last-child {
+  margin-bottom: 0; /* Loại bỏ khoảng cách dư thừa dưới cùng */
+}
+.modal-button{
+  display: flex;
+  justify-content: center;
+
+}
+.modal-button button{
+  padding: 6px;
+  margin-left: 10px;
+  width: 80px;
+  background-color: #0c86ea;
+}
+
+.apply-btn {
+  padding: 8px 12px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%; /* Chiều rộng đầy đủ cho button */
+}
+
+.apply-btn:hover {
+  background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%; /* Chiều rộng 90% trên các thiết bị nhỏ hơn */
+  }
+}

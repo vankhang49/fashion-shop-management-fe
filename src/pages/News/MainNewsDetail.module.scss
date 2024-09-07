@@ -1,0 +1,97 @@
+#main{
+    margin-top: 124px;
+    padding: 1.4rem;
+}
+.nav{
+    margin-top: 8px;
+    a{
+        padding: 4px 0;
+        color: #3b95da;
+    }
+    a+a{
+        &::before{
+            content: "›";
+            padding: 8px;
+        }
+    }
+    hr{
+        margin-top: 8px;
+        border: none;
+        height: 1px;
+        background-color: #ccc; 
+    }
+}
+.sectionOne{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1.4rem 4px;
+    gap: 1rem;
+    .item{
+        width: 80%;
+        flex-direction: column;
+        .header{
+            padding: 20px 0;
+            span{
+                color: #333;
+            }
+            span:nth-child(2){
+                &::before{
+                    content: "🧑🏻‍💻";
+                }
+                color: #db9500;
+            }
+            span:nth-child(3){
+                &::before{
+                    content: "🕰️";
+                }
+            }
+            span+span{
+                margin-left: 8px;
+            }
+        }
+        img{
+            max-width: 600px;
+            width: 100%;
+        }
+    }
+    .item:nth-child(1){
+        display: flex;
+        justify-content: center;
+        img{
+            width: 100%;
+        }
+        p{
+            padding: 4px 0;
+        }
+    }
+}
+
+
+/* ------------------------------------------Responsive -------------------------------------------*/
+
+@media screen and (min-width: 2160px){
+    .sectionOne{
+        .item{
+            img{
+                max-width: 900px;
+            }
+        }
+    }
+}
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+    .sectionOne{
+        .item{
+            width: 90%; 
+        }
+    }
+}
+/* Màn hình Mobile */
+@media screen and (max-width : 534px){
+    .sectionOne{
+        .item{
+            width: 98%; 
+        }
+    }
+}

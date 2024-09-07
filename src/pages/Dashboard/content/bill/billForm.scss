@@ -1,0 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+.bill-form {
+  background: var(--content-bg);
+  padding: 20px;
+  box-shadow: 30px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  .error-message{
+    padding: 10px;
+    color: #801818;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+
+    label {
+      flex: 1;
+      margin-left: 10px;
+      text-align: left;
+      max-width: 150px;
+    }
+
+    input[type="text"], input[type="number"] {
+      flex: 2;
+      padding: 10px;
+      border: 2px solid gray;
+      border-radius: 8px;
+      box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+      margin-left: 10px;
+      margin-bottom: 10px; /* Thêm khoảng cách đều nhau giữa các ô nhập liệu */
+    }
+
+    .input-small {
+      max-width: 150px; /* Đặt độ rộng cho các ô nhập liệu nhỏ */
+    }
+
+    //.input-large {
+    //  width: 200px; /* Đặt độ rộng cho các ô nhập liệu lớn */
+    //}
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      border: 2px solid gray;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+  }
+
+  .table-container {
+    max-height: 200px;
+    overflow-y: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+
+  .summary {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-weight: bold;
+
+    span {
+      margin-right: 20px;
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 15px;
+      margin-left: 10px;
+      border: 2px solid gray;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bill-form {
+    padding: 10px;
+
+    .form-group {
+      flex-direction: column;
+      align-items: flex-start;
+
+      label, input, button {
+        margin-left: 0px !important;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: left;
+        margin-left: 0px;
+      }
+
+      input[type="text"], input[type="number"] {
+        min-width: 100%;
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+
+    .summary {
+      flex-direction: column;
+      align-items: flex-start;
+
+      span {
+        margin-bottom: 10px;
+      }
+    }
+
+    .actions {
+      flex-direction: column;
+      align-items: flex-start;
+
+      button {
+        margin-left: 0px;
+        width: 100%;
+        margin-bottom: 10px;
+        border: 2px solid gray;
+      }
+    }
+  }
+}
+
+.qr-reader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .qr-reader {
+    width: 80%;
+    max-width: 400px;
+  }
+}

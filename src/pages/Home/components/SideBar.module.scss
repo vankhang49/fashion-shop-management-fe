@@ -1,0 +1,52 @@
+#sidebar{
+    position: fixed;
+    inset: 0;
+    background-color:rgb(85, 85, 85, 0.5);
+    z-index: 200;
+    a{
+        color: black;
+    }
+    .menuSidebar{
+        max-width: 520px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        background-color: #f2f2f2;
+        padding: 8px;
+        .menuTop{
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            h2{
+                color: red;
+            }            
+            .button{
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+            }
+        }
+        .menuContent{
+            padding: 12px;
+            ul{
+                li{
+                    margin: 8px 0;
+                }
+            }
+        }
+        .menuBottom{
+            border-top: 1px solid #ccc;
+            padding: 12px;
+            ul{
+                li{
+                    margin: 8px 0;
+                }
+            }
+        }
+    }
+    &.open {
+        display: block;
+    }
+    animation: moveleft 0.8s ;
+}

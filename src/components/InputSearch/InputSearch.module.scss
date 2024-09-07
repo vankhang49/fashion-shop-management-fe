@@ -1,0 +1,68 @@
+.container{
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.clearButton{
+    position: absolute;
+    font-size: 1.5rem;
+    margin-left: -28px;
+    background-color: transparent;
+    color: #fcaf17;
+    border: none;
+    right: 10px;
+    cursor: pointer;
+}
+.container .result{
+    position: absolute;
+    top: 40px;
+    background-color: white;
+    width: 100%;
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: 2px 2px 8px #333;
+    overflow-y: auto;
+    max-height: 60vh;
+    ul{
+        all: unset;
+        li{
+            all: unset;
+            display: block;
+            &::after{
+                display: none !important;;
+            }
+        }
+    }
+    &::-webkit-scrollbar{
+        width: 4px;
+        height: 4px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: #ccc;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: #fcaf17;
+    }
+}
+.productListSearch{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    .item{
+        display: flex;
+        gap: 10px;
+        p{
+            color: black;
+        }
+        img{
+            width: 50px;
+            aspect-ratio: 3/4;
+        }
+        span{
+            color: red;
+        }
+        cursor: pointer;
+    }
+}

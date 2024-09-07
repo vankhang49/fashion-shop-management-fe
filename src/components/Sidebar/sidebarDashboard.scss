@@ -1,0 +1,236 @@
+
+.app-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#content-wrapper {
+    border-radius: 4px;
+    width: 100%;
+    height: 100vh;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    margin: 0 auto;
+    max-height: 100%;
+    display: flex;
+    .sidebar {
+        flex-basis: 250px;
+        min-width: 250px;
+        flex-shrink: 0;
+        background-color: var(--sidebar);
+        display: flex;
+        flex-direction: column;
+        overflow: auto;
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+        }
+
+        .sidebar-list {
+            list-style-type: none;
+            padding: 70px 0;
+
+            .sidebar-list-item {
+                position: relative;
+                margin-bottom: 4px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    padding: 10px 16px;
+                    color: var(--sidebar-link);
+                    text-decoration: none;
+                    font-size: 14px;
+                    line-height: 24px;
+
+                    svg {
+                        margin-right: 8px;
+                    }
+
+                    span {
+                        svg {
+                            fill: var(--sidebar-main-color);
+                            position: absolute;
+                            right: 0;
+                        }
+                    }
+                }
+                .active {
+                    background-color: var(--sidebar-active-link);
+                }
+
+                .show-dropdown {
+                    padding: 10px 15px;
+                    font-size: 15px;
+                    border: 2px solid transparent;
+                    cursor: pointer;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    font-size: 13px;
+                    z-index: 1;
+                    width: 100%;
+                    //background-color: var(--sidebar);
+
+                    a {
+                        font-family: "Poppins", sans-serif;
+                        color: var(--sidebar-main-color);
+                        padding: 8px 0 8px 50px;
+                        text-decoration: none;
+                        display: block;
+                        transition: 0.1s;
+                    }
+
+                    a:focus {
+                        background-color: var(--sidebar-hover-link);
+                    }
+
+                    a:hover {
+                        background-color: var(--dropdown-hover-link);
+                    }
+                }
+
+                .dropdown-content.show {
+                    display: block;
+                    transition: 0.3s ease-in-out;
+                }
+            }
+
+            .sidebar-list-item:hover {
+                background-color: var(--sidebar-hover-link);
+            }
+
+            .sidebar-list-item.active {
+                background-color: var(--sidebar-active-link);
+            }
+
+            .sidebar-list-item.active:before {
+                content: "";
+                position: absolute;
+                right: 0;
+                background-color: var(--action-color);
+                height: 100%;
+                width: 4px;
+            }
+        }
+        .user-account {
+            position: absolute;
+            bottom: 0;
+            .user-box {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 7px;
+                .avatar {
+                    padding: 0 10px;
+
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                    }
+                }
+
+                .username {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: var(--app-content-main-color);
+                }
+
+                svg {
+                    fill: var(--sidebar-main-color);
+                    width: 15px;
+                    height: 15px;
+                    padding: 0 0 5px 5px;
+                }
+            }
+            .show-dropdown {
+                cursor: pointer;
+            }
+
+            .dropdown-content {
+                top: 100%;
+                width: 200px;
+                display: none;
+                font-size: 13px;
+                position: absolute;
+                z-index: 1;
+                border: 2px solid var(--table-border);
+                background-color: var(--sidebar);
+
+                a {
+                    font-family: "Poppins", sans-serif;
+                    color: var(--sidebar-main-color);
+                    padding: 8px 10px;
+                    text-decoration: none;
+                    display: block;
+                    transition: 0.1s;
+
+                    svg {
+                        fill: var(--sidebar-main-color);
+                        margin: 0 5px;
+                    }
+                }
+
+                a:focus {
+                    background-color: var(--sidebar-hover-link);
+                }
+
+                a:hover {
+                    background-color: var(--sidebar-hover-link);
+                }
+            }
+
+            .dropdown-content.show {
+                display: block;
+            }
+
+            .login-link {
+                width: 50%;
+                text-align: center;
+                text-decoration: none;
+                font-size: 14px;
+                color: var(--app-content-main-color);
+            }
+
+            .login-link:hover {
+                font-size: 15px;
+                transition: 0.2s ease-in-out;
+            }
+
+        }
+
+    }
+
+    .sidebar::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+        background-color: #7e7979;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+        background-color: #ccc;
+    }
+
+    @media screen and (max-width: 1024px) {
+        .sidebar {
+            position: absolute;
+            transition: transform 0.3s ease;
+            transform: translateX(-100%);
+            z-index: 1;
+            height: 100%;
+        }
+
+        .sidebar.appear {
+            transform: translateX(0);
+        }
+    }
+}
+

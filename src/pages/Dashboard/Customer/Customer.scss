@@ -1,0 +1,176 @@
+/* -----------------------------CSS cho phần Main (phần thân trang web) -----------------------------------*/
+#main-customer {
+    width: 100%;
+    height: auto;
+    background-color: var(--content-bg);
+    margin-top: 80px;
+    box-shadow: 2px 2px 5px 0 #4d4b4b;
+    border-radius: 10px;
+    overflow: auto;
+
+    h2 {
+        text-align: center;
+        padding: 1rem;
+        background-color: var(--sidebar);
+    }
+
+    .create {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 25px 50px;
+
+        .form {
+            width: 80%;
+            height: 80%;
+            //   border: 1px solid #4ade80;
+            //   background-color: white;
+            border-radius: 4px;
+            padding: 8px;
+
+            .item1 {
+                display: flex;
+                flex-wrap: wrap;
+                //   width: calc(100% - 20px);
+                label {
+                    width: calc(50% - 16px);
+                    margin-left: 16px;
+                    padding: 6px;
+                    min-height: 84px;
+                    display: flex;
+                    //   align-items: center;
+                    flex-wrap: wrap;
+
+                    span {
+                        width: 25%;
+                        min-width: 120px;
+                    }
+
+                    small {
+                        width: 100%;
+                        color: orangered;
+                        padding-left: 120px;
+                        margin-top: 6px;
+                    }
+
+                    input,
+                    select {
+                        padding: 10px;
+                        border: 1px solid #000;
+                        border-radius: 4px;
+                        max-height: 44px;
+                        min-height: 44px;
+                        flex: 1;
+                        outline: none;
+
+                        &:focus {
+                            border-color: rgb(110, 177, 9);
+                        }
+                    }
+                }
+            }
+
+            .item2 {
+                display: flex;
+                justify-content: end;
+                margin: 12px 0;
+
+                input {
+                    padding: 8px;
+                    margin: 0 8px;
+                }
+            }
+        }
+
+        .btn {
+            border-radius: 4px;
+            border: none;
+            padding: 8px 20px !important;
+            cursor: pointer;
+            font-size: 14px;
+
+            &.add {
+                background-color: #4ade80;
+            }
+
+            &.delete {
+                background-color: rgb(255, 68, 0,0.8);
+            }
+
+            &.cancel {
+                background-color: #dcdcdc;
+                color: #000;
+                margin-left: 8px;
+            }
+        }
+
+    }
+}
+
+/* ------------------------------------------Responsive -------------------------------------------*/
+
+/* Màn hình Desktop */
+@media screen and (max-width: 1200px) {
+    #main-customer {
+        .create {
+            padding: 8px;
+
+            .form {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+/* Màn hình Tablet lớn */
+@media screen and (max-width: 992px) {
+    #main-customer {
+        .create {
+            padding: 24px;
+
+            .form {
+                .item1 {
+                    label {
+                        width: 100%;
+
+                        small {
+                            padding-left: 25%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+    #main-customer {
+        .create {
+            .form {
+                .item1 {
+                    label {
+                        width: 100%;
+                        flex-direction: column;
+
+                        span,
+                        input,
+                        select {
+                            width: 100%;
+                        }
+
+                        span {
+                            margin-bottom: 8px;
+                        }
+
+                        small {
+                            padding-left: 0;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+}

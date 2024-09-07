@@ -1,0 +1,302 @@
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    box-shadow: 1px 0 8px 0 #333;
+
+    .navTop {
+        background-color: beige;
+        background-image: linear-gradient(rgb(254, 236, 200), rgb(255, 255, 255));
+        padding: 8px;
+        height: 54px;
+
+        ul {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            justify-content: space-evenly;
+            gap: 16px;
+
+            li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                cursor: pointer;
+
+                a {
+                    color: black;
+                }
+
+                &:hover {
+                    img {
+                        color: red;
+                    }
+
+                    color: red;
+                }
+
+                &:hover a {
+                    color: red;
+                }
+            }
+        }
+    }
+
+    .navMain {
+        height: 70px;
+        display: flex;
+        justify-content: space-around;
+        background-color: white;
+        padding: 8px;
+
+        ul {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            li {
+                padding: 0 12px;
+
+                a {
+                    color: red;
+                }
+            }
+
+            .btn {
+                padding: 8px 0;
+                border-radius: .25rem;
+                text-transform: uppercase;
+                font-style: normal;
+                font-weight: 400;
+                padding-left: 20px;
+                padding-right: 20px;
+                color: red;
+                -webkit-clip-path: polygon(0 0, 0 0, 100% 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 100%);
+                clip-path: polygon(0 0, 0 0, 100% 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 100%);
+                height: 40px;
+                font-size: .8rem;
+                line-height: 14px;
+                letter-spacing: 1.2px;
+                transition: .2s .1s;
+                background-image: linear-gradient(90deg, rgb(255, 165, 132), rgb(255, 255, 150));
+                border: 0 solid;
+                overflow: hidden;
+            }
+        }
+
+        ul:nth-child(1) {
+            color: red;
+            font-weight: 900;
+            font-size: 1.6rem;
+        }
+
+        ul:nth-child(2) {
+            li {
+                text-transform: uppercase;
+                color: #11006F;
+                cursor: pointer;
+                position: relative;
+
+                a {
+                    color: #110070;
+                }
+
+                &:hover a {
+                    color: #fcaf17;
+                    width: 100%;
+                }
+
+                &::after {
+                    position: absolute;
+                    width: 80%;
+                    // width: 8px;
+                    height: 2.8px;
+                    background-color: #11006F;
+                    content: "";
+                    display: none;
+                    color: red;
+                    right: 10px;
+                    left: 10px;
+                    bottom: -6px;
+                    animation: moveright 1s linear infinite;
+                }
+
+                &:hover::after {
+                    display: block;
+                }
+
+
+            }
+        }
+
+        ul:nth-child(3) {
+            li {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                svg {
+                    position: absolute;
+                    left: 16px;
+                    
+                }
+
+                input {
+                    padding: 12px;
+                    padding-left: 44px;
+                    width: 360px;
+                    max-width: 100%;
+                    border: none;
+                    background-color: #f2f2f2;
+                    outline: none;
+
+                    &:focus {
+                        outline: 1px solid red;
+                    }
+                }
+            }
+        }
+
+        ul:last-child {
+            display: none;
+
+            img {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    }
+}
+
+@keyframes moveleft {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Màn hình Desktop */
+@media screen and (max-width: 1200px) {
+    #header {
+        .navMain {
+            ul:nth-child(3) {
+                flex: 1;
+                justify-content: center;
+
+                li {
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Màn hình Tablet lớn */
+@media screen and (max-width: 992px) {
+    #header {
+        .navMain {
+            ul:nth-child(2) {
+                display: none;
+            }
+
+            ul:nth-child(3) {
+                flex: none;
+                justify-content: space-between;
+
+                li {
+                    input {
+                        width: 360px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+    #header {
+        .navTop {
+            ul {
+                li {
+                    a {
+                        font-size: 0;
+                    }
+                }
+            }
+        }
+
+        .navMain {
+            ul:nth-child(2) {
+                display: none;
+            }
+
+            ul:nth-child(3) {
+                flex: 1;
+                justify-content: center;
+
+                li {
+                    width: 100%;
+
+                    input {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Màn hình Mobile */
+@media screen and (max-width : 534px) {
+    #header {
+        .navMain {
+            justify-content: space-between;
+            ul:nth-child(2) {
+                display: none;
+            }
+
+            ul:nth-child(4) {
+                display: none;
+            }
+
+            ul:last-child {
+                display: flex;
+            }
+        }
+    }
+}
+
+/* Màn hình Mobile cực nhỏ */
+@media screen and (max-width : 320px) {}
+
+@keyframes moveright {
+    0% {
+        width: 20%;
+    }
+
+    25% {
+        width: 40%;
+    }
+
+    50% {
+        width: 60%;
+    }
+
+    75% {
+        width: 80%;
+    }
+
+    100% {
+        width: 80%;
+    }
+}

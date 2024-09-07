@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding-top: 60px;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 10% auto; /* Thay đổi margin để căn giữa modal trên màn hình */
+  padding: 20px;
+  border: 2px solid #565151;
+  width: 90%; /* Thay đổi chiều rộng của modal để phù hợp với màn hình nhỏ */
+  max-width: 600px;
+  border-radius: 20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  flex-wrap: wrap; /* Đảm bảo search bar linh hoạt trên các thiết bị nhỏ hơn */
+  justify-content: space-between;
+}
+
+.search-bar input {
+  width: 100%; /* Đảm bảo input sử dụng không gian đầy đủ trên các thiết bị */
+  max-width: 420px; /* Giới hạn chiều rộng input để tránh quá rộng trên màn hình lớn */
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.search-bar button {
+  padding: 10px 20px; /* Cải thiện trải nghiệm nhấn nút */
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 10px;
+  margin-left: 10px; /* Khoảng cách giữa nút và input */
+  margin-top: 10px;
+}
+
+
+.data-table {
+  max-height: 400px;
+  overflow-y: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center; /* Canh giữa các nút phân trang */
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.pagination button {
+  padding: 10px 20px; /* Cải thiện trải nghiệm nhấn nút */
+  font-size: 16px;
+  border-radius: 10px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
+  border: 2px solid #150a0a;
+}
+
+#selectBtn {
+  display: block;
+  width: 100%;
+  padding: 10px 20px; /* Cải thiện trải nghiệm nhấn nút */
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+#selectBtn:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive CSS */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+  }
+
+  .pagination {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pagination button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}

@@ -1,0 +1,159 @@
+/*-------------- Reset CSS----------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --app-bg: #ecfafd;
+  --sidebar: #f3f6fd;
+  --content-bg: rgba(243, 246, 253, 0.9);
+  --sidebar-main-color: #1f1c2e;
+  --app-content-main-color: #1f1c2e;
+  --sidebar-link: #1f1c2e;
+  --sidebar-active-link: rgba(195, 207, 244, 1);
+  --sidebar-hover-link: rgba(195, 207, 244, 0.5);
+  --dropdown-hover-link: rgba(173, 189, 239, 0.5);
+  --app-content-secondary-color: rgba(215, 223, 246, 0.5);
+  --filter-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  --action-color: #2869ff;
+  --button-bg-hover: rgba(10, 22, 243, 0.78);
+  --action-color-hover: #6291fd;
+  --button-char-color: #fff;
+  --table-border: rgba(50, 58, 76, 0.07);
+  --sub-color: #76747c;
+  --background-dashboard: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+  --background-image: url("../images/normal.jpg");
+}
+.dark:root {
+  --filter-reset: #2c394f;
+  --app-bg: #101827;
+  --sidebar: rgba(21, 30, 47, 1);
+  --content-bg: rgba(21, 30, 47, 0.9);
+  --table-border: #1a2131;
+  --table-header: #1a2131;
+  --sub-color: #a8a5af;
+  --app-content-secondary-color: #1d283c;
+  --app-content-main-color: #fff;
+  --sidebar-link: #fff;
+  --sidebar-hover-link: #1a2539;
+  --dropdown-hover-link: #253551;
+  --sidebar-active-link: #1d283c;
+  --sidebar-main-color: #fff;
+  --filter-shadow: rgba(16, 24, 39, 0.8) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --background-dashboard: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+  --background-image: url("../../assets/images/normal.jpg");
+}
+
+.spring:root {
+  --filter-reset: #F9F5F6;
+  --sidebar: rgb(249, 245, 246);
+  --content-bg: rgba(249, 245, 246, 0.9);
+  --table-border: #e6dade;
+  --table-header: #a57251;
+  --sub-color: #2a9d8f;
+  --app-content-secondary-color: #F8E8EE;
+  --app-content-main-color: #000;
+  --sidebar-link: #000;
+  --sidebar-hover-link: #ead2da;
+  --sidebar-active-link: #FDCEDF;
+  --dropdown-hover-link: #f6d7e1;
+  --sidebar-main-color: #000;
+  --action-color: #f3b4d0;
+  --button-bg-hover: rgb(209, 147, 197);
+  --button-char-color: #353131;
+  --filter-shadow: rgba(252, 74, 26, 0.8) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  --background-dashboard: linear-gradient(109.6deg, rgb(253, 206, 223) 11.2%, rgb(242, 190, 209) 91.1%);
+  --background-image: url("../../assets/images/spring.jpg");
+}
+
+.summer:root {
+  --filter-reset: #5d3a00;
+  --content-bg: rgba(239, 225, 204, 0.9);
+  --sidebar: rgb(244, 211, 161);
+  --table-border: rgba(140, 94, 88, 0.22);
+  --table-header: #f3922c;
+  --sub-color: #6c5b47;
+  --app-content-secondary-color: #f3b486;
+  --app-content-main-color: #000;
+  --sidebar-link: #000;
+  --sidebar-hover-link: #f3bd80;
+  --sidebar-active-link: #edb18b;
+  --dropdown-hover-link: #f8d0a3;
+  --sidebar-main-color: #000;
+  --action-color: #ed8a4c;
+  --button-bg-hover: rgb(227, 100, 21);
+  --button-char-color: #faf7f7;
+  --filter-shadow: rgba(255, 179, 71, 0.8) 0px 6px 12px -2px, rgba(252, 141, 89, 0.3) 0px 3px 7px -3px;
+  --background-dashboard: linear-gradient(109.6deg, rgb(242, 172, 85) 11.2%, rgb(239, 122, 69) 91.1%);
+  --background-image: url("../../assets/images/summer-outfit.jpg");
+}
+
+.autumn:root {
+  --filter-reset: #5d3a00;
+  --content-bg: rgba(239, 225, 204, 0.9);
+  --sidebar: rgb(161, 140, 110);
+  --table-border: #8c5e58;
+  --table-header: #eaaf72;
+  --sub-color: #50402b;
+  --app-content-secondary-color: #c1a086;
+  --app-content-main-color: #000;
+  --sidebar-link: #000;
+  --sidebar-hover-link: #a88a60;
+  --sidebar-active-link: #c1ad8a;
+  --sidebar-main-color: #000;
+  --filter-shadow: rgba(228, 182, 116, 0.8) 0px 6px 12px -2px, rgba(252, 141, 89, 0.3) 0px 3px 7px -3px;
+  --background-dashboard: linear-gradient(109.6deg, rgb(140, 128, 114) 11.2%, rgb(151, 112, 93) 91.1%);
+  --background-image: url("../../assets/images/autumn.jpg");
+
+}
+
+.winter:root {
+  --filter-reset: #1d3557;
+  --sidebar: rgb(173, 216, 230);
+  --table-border: #a8dadc;
+  --table-header: #457b9d;
+  --sub-color: #3f4a59;
+  --app-content-secondary-color: #c0d6df;
+  --app-content-main-color: #000;
+  --sidebar-link: #000;
+  --sidebar-hover-link: #a8dadc;
+  --sidebar-active-link: #457b9d;
+  --sidebar-main-color: #000;
+  --filter-shadow: rgba(173, 216, 230, 0.8) 0px 6px 12px -2px, rgba(69, 123, 157, 0.3) 0px 3px 7px -3px;
+  --background-dashboard: linear-gradient(109.6deg, rgb(224, 236, 255) 11.2%, rgb(173, 216, 230) 91.1%);
+  --background-image: url("../../assets/images/winter-outfit.jpg");
+}
+
+body{
+  font-family: "Poppins", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::-webkit-scrollbar{
+  width: 10px;
+  height: 10px;
+}
+body::-webkit-scrollbar-thumb{
+  background-color: black;
+}
+body::-webkit-scrollbar-track{
+  background-color: #ccc;
+}
+
+.slick-dots{
+  bottom: 10px !important;
+  // li{
+  //   button{
+  //     width: 40px !important;
+  //     &::before{
+  //       width: 40px !important;
+  //     }
+  //   }
+
+  // }
+}

@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap");
+
+.invoice-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền xám với độ mờ */
+  z-index: 999; /* Đảm bảo lớp phủ hiển thị phía trên modal */
+}
+
+.invoice-modal {
+  font-family: Arial, sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 90%; /* Thay đổi max-width để phù hợp với thiết bị nhỏ hơn */
+  width: 600px; /* Kích thước mặc định cho desktop */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+
+  @media (max-width: 768px) { /* Responsive cho thiết bị nhỏ hơn */
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #invoice-content {
+    .invoice-header {
+      margin-bottom: 20px;
+
+      h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+
+      p {
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1.5rem;
+        padding: 10px;
+      }
+
+      span {
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1rem;
+      }
+    }
+
+    .invoice-customer {
+      margin-bottom: 20px;
+
+      p {
+        margin: 5px 0;
+
+        span {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .invoice-products {
+      margin-top: 20px;
+
+      h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+
+        th {
+          background-color: #f2f2f2;
+        }
+      }
+    }
+
+    .invoice-summary {
+      margin-top: 20px;
+      text-align: right;
+
+      p {
+        margin: 5px 0;
+
+        &:last-child {
+          margin-top: 10px;
+        }
+      }
+      div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        p {
+          font-size: 1.1rem;
+          color: var(--app-content-main-color);
+          width: 200px;
+        }
+
+        .total {
+          font-size: 1.2rem;
+        }
+
+        .discount {
+          color: #1cc61c;
+        }
+
+        .last-total {
+          color: red;
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+
+  .invoice-actions {
+    text-align: center;
+    margin-top: 20px;
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+
+      &.secondary {
+        background-color: #6c757d;
+        margin-left: 10px;
+
+        &:hover {
+          background-color: #5a6268;
+        }
+      }
+    }
+  }
+}

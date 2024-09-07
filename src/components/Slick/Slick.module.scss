@@ -1,0 +1,43 @@
+.sliderHome{
+    margin-top: 124px;
+    width: 100%;
+    overflow: hidden;
+    width: 100%;
+    .item{
+        width: 100%;
+        height: calc(100vh - 124px);
+        img{
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+        }
+    }
+}
+/* Màn hình Tablet lớn */
+@media screen and (max-width: 992px) {
+    .sliderHome{
+        .item{
+            width: 100%;
+            height: 540px;
+        }
+    }
+}
+
+/* Màn hình Tablet */
+@media screen and (max-width: 768px) {
+    .sliderHome{
+        .item{
+            width: 100%;
+            height: 400px;
+        }
+    }
+}
+/* Màn hình Mobile */
+@media screen and (max-width : 534px){
+    .sliderHome{
+        .item{
+            width: 100%;
+            height: 240px;
+        }
+    }
+}

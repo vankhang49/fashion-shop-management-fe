@@ -1,0 +1,182 @@
+.container-createNotification-nhi {
+  width: 100%;
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 13px 37px;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 5px;
+  margin-left: 5%;
+  margin-right: 5%;
+  height: fit-content;
+}
+
+.title-createNotification-nhi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 15px 40px;
+  border-radius: 10px;
+  background-color: var(--Blue);
+  color: var(--White);
+}
+
+.title-createNotification-nhi .b-tag-create-notification {
+  font-size: 1.7rem;
+  line-height: 2.5rem;
+}
+
+.container-createNotification-nhi .title-createNotification-nhi::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container-createNotification-nhi form .user-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.user-details .input-box .details {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.user-details .input-box .user-details-input-nhi {
+  height: 45px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding-left: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box textarea {
+  height: 100px;
+  width: 100%;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  font-size: 16px;
+  border-bottom-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus,
+.user-details .input-box textarea:focus,
+.user-details .input-box input:valid {
+  border-color: lightblue;
+}
+
+form .object-receive {
+  width: 100%;
+}
+
+form .object-receive .category {
+  display: flex;
+  justify-content: space-between;
+  margin: 14px 0;
+  width: 100%;
+}
+
+.object-receive .category label {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.object-receive .category .dot {
+  height: 18px;
+  width: 18px;
+  background: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.container-createNotification-nhi input[type="radio"] {
+  display: none;
+}
+
+.container-createNotification-nhi #dot-1:checked + label .dot,
+.container-createNotification-nhi #dot-2:checked + label .dot,
+.container-createNotification-nhi #dot-3:checked + label .dot {
+  border: 5px solid black;
+  background-color: #71b7e6;
+}
+
+form .button-post-notification {
+  height: 35px;
+  display: flex;
+  flex-grow: 2;
+}
+
+form .button-post-notification input {
+  height: 100%;
+  width: 50%;
+  outline: none;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  background: lightblue;
+  margin: 0 30px;
+}
+
+form .button-post-notification .send:hover {
+  background: white;
+  color: black;
+  border: 2px solid lightblue;
+  cursor: pointer;
+}
+form .button-post-notification .cancel {
+  background: #cccccc;
+  color: black;
+  cursor: pointer;
+}
+
+form .button-post-notification .cancel:hover {
+  background: #c4bdbd;
+  color: black;
+  cursor: pointer;
+}
+
+.error-create-notification {
+  color: red;
+  font-size: 12px;
+}
+
+@media (max-width: 584px) {
+  .container-createNotification-nhi {
+    max-width: 100%;
+  }
+  form .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
