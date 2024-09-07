@@ -71,7 +71,7 @@ export default function CreateNotification(props) {
             console.log(data);
             await notificationService.addNewNotification(data);
             setValidateError([]);
-            const socket = new SockJS("http://localhost:8080/ws");
+            const socket = new SockJS("https://fashion-shop-management.onrender.com/ws");
             const stompClient = over(socket);
             stompClient.connect({}, () => {
                 stompClient.send(urlSocketRef.current, {}, JSON.stringify(data));

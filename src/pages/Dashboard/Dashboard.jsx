@@ -21,7 +21,7 @@ export function Dashboard() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
-        const socket = new SockJS("http://localhost:8080/ws");
+        const socket = new SockJS("https://fashion-shop-management.onrender.com/ws");
         const stompClient = Stomp.over(socket);
         stompClient.connect({}, () => {
             stompClient.subscribe('/topic/createNotification', (message) => {

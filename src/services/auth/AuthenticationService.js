@@ -3,7 +3,7 @@ import {jwtDecode} from "jwt-decode";
 import axiosInstance from "../../utils/axiosInstance";
 import {useNavigate} from "react-router-dom";
 
-const baseURL = "http://localhost:8080";
+const baseURL = "https://fashion-shop-management.onrender.com";
 axios.defaults.withCredentials = true;
 
 const rememberMe = {

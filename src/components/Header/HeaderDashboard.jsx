@@ -26,7 +26,7 @@ export function HeaderDashboard(props) {
     const [quantityUnread, setQuantityUnread] = useState([]);
     const [stompClient, setStompClient] = useState(null);
     useEffect(() => {
-        const socket = new SockJS("http://localhost:8080/ws");
+        const socket = new SockJS("https://fashion-shop-management.onrender.com/ws");
         const stompClient = Stomp.over(socket);
         stompClient.connect({}, () => {
             stompClient.subscribe("/topic/notification", (message) => {
@@ -48,7 +48,7 @@ export function HeaderDashboard(props) {
             await getRoleName();
         }
         fetchData().then().catch();
-        const socket = new SockJS("http://localhost:8080/ws");
+        const socket = new SockJS("https://fashion-shop-management.onrender.com/ws");
         const stompClient = Stomp.over(socket);
         stompClient.connect({}, () => {
             stompClient.subscribe('/topic/createNotification', (message) => {
