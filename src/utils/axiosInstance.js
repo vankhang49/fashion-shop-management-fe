@@ -11,6 +11,7 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
     (config) => {
         config.headers.Authorization = `Bearer`;
+        config.headers.userId = localStorage.getItem("id");
         return config;
     },
     (error) => {
@@ -24,16 +25,15 @@ axiosInstance.interceptors.response.use(
     (error) => {
         if (error.response && error.response.status === 401) {
             console.error('Lỗi 401: Unauthorized');
-            // localStorage.removeItem('token');
-            // localStorage.removeItem('role');
-            // localStorage.removeItem('fullName');
-            // localStorage.removeItem('avatar');
-            // localStorage.removeItem('id');
-            // localStorage.removeItem('isAuthenticated');
-            // toast.warning("Đã hết phiên đăng nhập");
-            // setTimeout(() => {
-            //     window.location.href = '/login';
-            // }, 3000);
+            localStorage.removeItem('fullName');
+            localStorage.removeItem('avatar');
+            localStorage.removeItem('id');
+            localStorage.removeItem('isAuthenticated')
+            localStorage.removeItem('lastTime');
+            toast.warning("Đã hết phiên đăng nhập");
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 3000);
         }else if(error.code === "ERR_NETWORK"){
 
             toast.error("Máy chủ đang gặp sự cố !");

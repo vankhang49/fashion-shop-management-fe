@@ -52,7 +52,6 @@ function LoginPage(props) {
                 setIsLoading(false);
                 if (userData.statusCode === 200) {
                     localStorage.setItem("id", userData.userId);
-                    localStorage.setItem('token', userData.token);
                     localStorage.setItem('fullName', userData.fullName);
                     localStorage.setItem('avatar', userData.avatar);
                     localStorage.setItem('isAuthenticated', "authenticated");
@@ -90,7 +89,7 @@ function LoginPage(props) {
                 </div>
                 <div className="middle-part"></div>
                 <div className="right-part">
-                    <Link to={"/dashboard"}>Quay lại trang chủ</Link>
+                    <Link to={"/"}>Quay lại trang chủ</Link>
                 </div>
             </div>
             <div className="content">

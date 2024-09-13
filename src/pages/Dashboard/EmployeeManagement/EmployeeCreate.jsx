@@ -15,6 +15,7 @@ export function EmployeeCreate() {
     const [isShowSidebar, setIsShowSidebar] = useState(false);
     const [isLoading, setIsLoading] = useState(false); // Add loading state
     const [roles, setRoles] = useState([]);
+    const [userRoles, setUserRoles] = useState([]);
     const [validateError, setValidateError] = useState([])
     const {register, handleSubmit, setValue, formState: {errors}} = useForm({
         criteriaMode: "all"
@@ -25,9 +26,8 @@ export function EmployeeCreate() {
             if (id) {
                 // Fetch employee data by id and set form values
                 await getEmpById(id);
-            } else {
-                await getRoleList();
             }
+            await getRoleList();
         }
         fetchData();
     }, [id])
@@ -46,14 +46,14 @@ export function EmployeeCreate() {
             setValue("phoneNumber", temp.phoneNumber);
             setValue("email", temp.email);
             setValue("address", temp.address);
-            setValue("role", JSON.stringify(temp.role));
+            setValue("roles", temp.roles);
+            setUserRoles(temp.roles);
             if (id !== undefined) {
                 setValue("accountNonExpired", temp.accountNonExpired);
                 setValue("accountNonLocked", temp.accountNonLocked);
                 setValue("credentialsNonExpired", temp.credentialsNonExpired);
                 setValue("enabled", temp.enabled);
             }
-            setRoles(temp.roles);
         }
     }
 
@@ -62,11 +62,26 @@ export function EmployeeCreate() {
         setRoles(temp);
     }
 
+    const handleAddRoles = (event) => {
+        if (event.target.value === "") {
+            return;
+        }
+        const role = JSON.parse(event.target.value);
+        if (!userRoles.some(r => r.roleName === role.roleName)) {
+            setUserRoles(prevRoles => [...prevRoles, role]);
+        }
+    }
+
+    const handlePopRoles = (role) => {
+        const parsedRole = JSON.parse(role);
+        setUserRoles(prevRoles => prevRoles.filter(r => r.roleName !== parsedRole.roleName));
+    }
+
     const onSubmit = async (data) => {
         try {
             setIsLoading(true);
             const now = Date.now();
-            data.role = JSON.parse(data.role);
+            data.roles = userRoles;
             data.gender = Number.parseInt(data.gender);
             if (id !== undefined) {
                 data.enabled = JSON.parse(data.enabled);
@@ -232,10 +247,12 @@ export function EmployeeCreate() {
                                 </label>
                                 <select {...register("role", {
                                     required : "Chức vụ không được để trống!"
-                                })}>
+                                })}
+                                        onChange={(e) => handleAddRoles(e)}
+                                >
                                     <option value="">--Chọn một vị trí--</option>
                                     {roles && roles.map((item) => (
-                                        <option selected={item.roleId === employee?.role.roleId}
+                                        <option
                                                 value={JSON.stringify(item)}>
                                             {item.roleId === 1 ? "Admin"
                                                 : item.roleId === 2 ? "Quản lý cửa hàng"
@@ -244,6 +261,17 @@ export function EmployeeCreate() {
                                         </option>
                                     ))}
                                 </select>
+                                <div className="roleList">
+                                    {userRoles && userRoles.map((role) => (
+                                        <div className="roleElement">
+                                            <span>{role.roleId === 1 ? "Admin"
+                                                : role.roleId === 2 ? "Quản lý cửa hàng"
+                                                    : role.roleId === 3 ? "Nhân viên bán hàng"
+                                                        : "Quản lý kho"}</span>
+                                            <button onClick={()=>handlePopRoles(JSON.stringify(role))}>X</button>
+                                        </div>
+                                    ))}
+                                </div>
                                 {errors.role && <p className="validate-error">{errors.role.message}</p>}
                                 {validateError && <p className="validate-error">{validateError.role}</p>}
                             </div>

@@ -448,6 +448,39 @@
               }
             }
 
+            .roleList {
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              flex-wrap: wrap;
+              padding: 10px 0;
+
+              .roleElement {
+                padding: 5px;
+                border: 1px solid #c4bdbd;
+                border-radius: 10px;
+                background-color: white;
+                position: relative;
+                margin: 5px;
+
+                span {
+                  color: var(--app-content-main-color);
+                }
+
+                button {
+                  background: white;
+                  border-radius: 50%;
+                  border: 1px solid #c4bdbd;
+                  width: 20px;
+                  height: 20px;
+                  position: absolute;
+                  top: -7px;
+                  right: -7px;
+                  color: red;
+                }
+              }
+            }
+
             .btn-submit {
               width: 140px;
               height: 44px;

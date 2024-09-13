@@ -2,7 +2,8 @@ import axiosInstance from '../../utils/axiosInstance';
 
 export const getAllNotification = async () => {
     try {
-        const temp = await axiosInstance.get(`/notification/list`);
+        const userId = localStorage.getItem("id");
+        const temp = await axiosInstance.get(`/notification/list/${userId}`);
         return temp.data;
     } catch (e) {
         console.log(e);
@@ -11,7 +12,8 @@ export const getAllNotification = async () => {
 }
 export const getAllByStatusRead = async (statusRead) => {
     try {
-        const temp = await axiosInstance.get(`/notification/listByStatusRead/${statusRead}`);
+        const userId = localStorage.getItem("id");
+        const temp = await axiosInstance.get(`/notification/listByStatusRead/${statusRead}/${userId}`);
         return temp.data;
     } catch (e) {
         console.log(e);

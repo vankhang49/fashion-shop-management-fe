@@ -295,10 +295,15 @@ export function EmployeeList() {
                                         <td className={"emp-code"}>{employee.userCode}</td>
                                         <td className={"emp-name"}>{employee.fullName}</td>
                                         <td className={"emp-role"}>
-                                            {employee.role.roleId === 1 ? "Admin"
-                                                : employee.role.roleId === 2 ? "Quản lý cửa hàng"
-                                                    : employee.role.roleId === 3? "Nhân viên bán hàng"
-                                                        : "Quản lý kho"}
+                                            {employee.roles.map((role, index) => (
+                                                <span key={index}>
+                                                    {role.roleId === 1 ? "Admin"
+                                                        : role.roleId === 2 ? "Quản lý cửa hàng"
+                                                            : role.roleId === 3? "Nhân viên bán hàng"
+                                                                : "Quản lý kho"}
+                                                    {index !== employee.roles.length-1 && ", "}
+                                                </span>
+                                            ))}
                                         </td>
                                         <td className={"status"}>
                                             {employee.enabled === true ?

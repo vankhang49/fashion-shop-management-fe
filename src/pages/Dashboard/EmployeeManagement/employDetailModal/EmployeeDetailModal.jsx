@@ -60,11 +60,15 @@ export const EmployeeDetailModal = ({isOpen, onClose, id, onEnableSuccess}) => {
                             </div>
                             <div className={styles.role}>
                                 <label className={styles.title}>Chức vụ: </label>
-                                <span>
-                                    {employee.role.roleName === "ROLE_MANAGER" ? "Quản lý cửa hàng"
-                                    : employee.role.roleName === "ROLE_WAREHOUSE" ? "Quản lý kho"
-                                    : "Nhân viên bán hàng"}
-                                </span>
+                                {employee.roles.map((role, index) => (
+                                    <span key={index}>
+                                                    {role.roleId === 1 ? "Admin"
+                                                        : role.roleId === 2 ? "Quản lý cửa hàng"
+                                                            : role.roleId === 3? "Nhân viên bán hàng"
+                                                                : "Quản lý kho"}
+                                        {index !== employee.roles.length-1 && ", "}
+                                                </span>
+                                ))}
                             </div>
                             <div className={styles.empFullName}>
                                 <label className={styles.title}>Họ và tên: </label>

@@ -3,7 +3,7 @@ import {jwtDecode} from "jwt-decode";
 import axiosInstance from "../../utils/axiosInstance";
 import {useNavigate} from "react-router-dom";
 
-const baseURL = "https://fashion-shop-management.onrender.com";
+const baseURL = process.env.REACT_APP_API_URL;
 axios.defaults.withCredentials = true;
 
 const rememberMe = {
@@ -68,39 +68,46 @@ export const updatePasswordUser = async (userData) => {
 /**AUTHENTICATION CHECKER */
 export const logout = async () => {
     try {
-        const response = await axiosInstance.post(`${baseURL}/api/auth/logout`)
-        return response.data;
+        const userId = localStorage.getItem("id");
+        await axiosInstance.post(`logout?userId=${userId}`);
+        localStorage.removeItem('fullName');
+        localStorage.removeItem('avatar');
+        localStorage.removeItem('id');
+        localStorage.removeItem('isAuthenticated')
+        localStorage.removeItem('lastTime');
+        window.location.href = '/login';
     } catch (e) {
-        e.message = "Đăng xuất thất bại!";
         throw e;
     }
 }
-export const getRole = async () => {
+
+export const getRoles = async () => {
     try {
         const response = await axiosInstance.get(`${baseURL}/api/auth/user-role`)
         return response.data;
     } catch (e) {
-        console.log(e);
+        return [];
     }
 }
 
-export const isAdmin = async () =>{
-    const roleName = await getRole();
-    return roleName === 'ROLE_ADMIN';
+export const isAdmin = async () => {
+    const roles = await getRoles();
+    return roles.some(role => role.roleName === 'ROLE_ADMIN');
 }
+
 export const isWarehouse = async () =>{
-    const roleName = await getRole();
-    return roleName === 'ROLE_WAREHOUSE';
+    const roles = await getRoles();
+    return roles.some(role => role.roleName === 'ROLE_WAREHOUSE');
 }
 
 export const isSalesMan = async () =>{
-    const roleName = await getRole();
-    return roleName === 'ROLE_SALESMAN';
+    const roles = await getRoles();
+    return roles.some(role => role.roleName === 'ROLE_SALESMAN');
 }
 
 export const isStoreManager = async () =>{
-    const roleName = await getRole();
-    return roleName === 'ROLE_MANAGER';
+    const roles = await getRoles();
+    return roles.some(role => role.roleName === 'ROLE_MANAGER');
 }
 
 export const adminOnly = () =>{

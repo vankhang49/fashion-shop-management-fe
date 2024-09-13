@@ -91,19 +91,21 @@ export function HeaderDashboard(props) {
     }, [])
 
     const getRoleName = async () => {
-        const role = await authenticationService.getRole();
-        if (role === 'ROLE_ADMIN') {
-            setRoleName("admin");
-        }
-        if (role === 'ROLE_WAREHOUSE') {
-            setRoleName("warehouse");
-        }
-        if (role === 'ROLE_SALESMAN') {
-            setRoleName("salesman");
-        }
-        if (role === 'ROLE_MANAGER') {
-            setRoleName("storeManager");
-        }
+        const roles = await authenticationService.getRoles();
+        roles.forEach((role) => {
+            if (role === 'ROLE_ADMIN') {
+                setRoleName("admin");
+            }
+            if (role === 'ROLE_WAREHOUSE') {
+                setRoleName("warehouse");
+            }
+            if (role === 'ROLE_SALESMAN') {
+                setRoleName("salesman");
+            }
+            if (role === 'ROLE_MANAGER') {
+                setRoleName("storeManager");
+            }
+        })
     }
 
     const getQuantityNotificationUnread = async () => {
@@ -141,14 +143,7 @@ export function HeaderDashboard(props) {
             const temp = authenticationService.logout();
             toast.success(temp);
             navigate("/login");
-            localStorage.removeItem('token');
-            localStorage.removeItem('role');
-            localStorage.removeItem('fullName');
-            localStorage.removeItem('avatar');
-            localStorage.removeItem('id');
-            localStorage.removeItem('isAuthenticated')
-            localStorage.removeItem('lastTime');
-        } catch (e) {
+          } catch (e) {
             toast.error(e.message);
         }
     }

@@ -4,13 +4,16 @@ import {useEffect, useState} from "react";
 import "./DashboardMain.scss";
 import ListOfNotification from "../Notification/list/ListOfNotification";
 import * as authenticationService from "../../services/auth/AuthenticationService";
+import {useNavigate} from "react-router-dom";
 
 export function DashboardMain({content, path}) {
     const [isShowSidebar, setIsShowSidebar] = useState(false);
     const [showNotificationList, setShowNotificationList] = useState(false);
+    const navigate = useNavigate();
 
     const handleLogout = async () => {
         await authenticationService.logout();
+        navigate("/login");
     };
 
     const checkMidnightLogout = () => {
